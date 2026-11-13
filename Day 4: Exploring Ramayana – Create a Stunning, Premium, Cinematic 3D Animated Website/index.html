@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>RAMAYANA — The Eternal Epic</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;800&family=Cormorant+Garamond:ital,wght@400;600&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<style>
+:root{--gold:#f2b44a;--saf:#ff7a1a;--red:#a3141c;--blue:#16296b;--bg:#070406;--tx:#f3e6cf;--mut:#b9a587;color-scheme:dark;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{margin:0;background:var(--bg);color:var(--tx);font:19px/1.65 'Cormorant Garamond',Georgia,serif;overflow-x:hidden}
+h1,h2,h3,.cz{font-family:Cinzel,'Times New Roman',serif;font-weight:800}
+.dv{font-family:'Tiro Devanagari Hindi','Noto Serif Devanagari',serif}
+a{color:inherit;text-decoration:none}svg{display:block;width:100%;height:100%}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+section{position:relative;padding:120px 6vw}.wrap{max-width:1200px;margin:auto}
+h2{font-size:clamp(1.8rem,5vw,3.4rem);margin:0 0 44px;letter-spacing:.08em;color:var(--gold);text-shadow:0 0 30px #ff7a1a55}
+/* loader, progress, cursor */
+#ld{position:fixed;inset:0;z-index:1000;background:#050204;display:grid;place-content:center;gap:26px;text-align:center}
+.lg{font-size:clamp(2rem,8vw,4.5rem);letter-spacing:.3em;color:var(--gold);animation:gl 2s ease-in-out infinite alternate}
+@keyframes gl{from{text-shadow:0 0 8px #ff7a1a55}to{text-shadow:0 0 40px #ff7a1a,0 0 90px #a3141c}}
+.bar{height:2px;background:#fff2;overflow:hidden}.bar i{display:block;height:100%;width:40%;background:var(--gold);animation:ld 1.2s infinite}
+@keyframes ld{from{transform:translateX(-100%)}to{transform:translateX(260%)}}
+#pg{position:fixed;top:0;left:0;right:0;height:3px;z-index:900;background:linear-gradient(90deg,var(--saf),var(--gold));transform:scaleX(0);transform-origin:0 50%}
+#cd,#cr{position:fixed;left:0;top:0;pointer-events:none;z-index:999;translate:-50% -50%;border-radius:50%;display:none}
+#cd{width:7px;height:7px;background:var(--gold)}#cr{width:38px;height:38px;border:1px solid var(--gold);transition:width .3s,height .3s,background .3s}
+#cr.h{width:70px;height:70px;background:#f2b44a22}
+@media(hover:hover){body{cursor:none}a,button{cursor:none}#cd,#cr{display:block}}
+/* nav */
+nav{position:fixed;inset:0 0 auto;z-index:800;display:flex;align-items:center;gap:18px;padding:calc(14px + env(safe-area-inset-top,0px)) 5vw 14px}
+nav::before{content:'';position:absolute;inset:0;z-index:-1;background:linear-gradient(#050204dd,#0502040a);backdrop-filter:blur(8px)}
+.logo{font-size:1.15rem;letter-spacing:.3em;color:var(--gold);margin-right:auto}
+.lk{display:flex;gap:30px}.lk a{font:600 .78rem Cinzel,serif;letter-spacing:.2em;position:relative;padding:4px 0}
+.lk a::after{content:'';position:absolute;left:0;bottom:0;height:1px;width:100%;background:var(--gold);transform:scaleX(0);transition:.4s}.lk a:hover::after{transform:scaleX(1)}
+nav button{all:unset;cursor:pointer;color:var(--gold);font:600 .75rem Cinzel,serif;letter-spacing:.15em;border:1px solid #f2b44a66;border-radius:30px;padding:7px 14px;backdrop-filter:blur(6px)}
+#snd.on{background:var(--gold);color:#120804;box-shadow:0 0 20px var(--saf)}#mb{display:none}
+/* hero */
+#hero{height:100vh;min-height:640px;padding:0;display:flex;flex-direction:column;justify-content:space-between;text-align:center;overflow:hidden;background:radial-gradient(ellipse at 50% 62%,#ff7a1a77,transparent 60%),linear-gradient(#0d1a5a,#4a1018 62%,#150609)}
+#hero::before{content:'राम';display:none;position:absolute;inset:0;place-content:center;font:clamp(8rem,30vw,22rem) 'Tiro Devanagari Hindi',serif;color:#ffd27a;opacity:.35;text-shadow:0 0 80px var(--saf)}
+.nogl #hero::before{display:grid}
+#gl{position:absolute;inset:0;width:100%;height:100%}.nogl #gl{display:none}
+#hero::after{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 45%,#050204dd)}
+.top,.sub{position:relative;z-index:2;padding:0 5vw}.top{padding-top:16vh}.sub{padding-bottom:calc(8vh + env(safe-area-inset-bottom,0px));display:grid;gap:22px;justify-items:center}
+.t{font-size:clamp(2.6rem,12vw,9.5rem);letter-spacing:.1em;margin:0;line-height:1;filter:drop-shadow(0 0 30px #ff7a1a99);perspective:800px}
+.t span{display:inline-block;background:linear-gradient(#fff3c8,#f2b44a 50%,#b5651d);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.tag{font-size:clamp(1rem,2.4vw,1.5rem);font-style:italic;letter-spacing:.06em;margin:14px 0 0;color:#ffe6bd;text-shadow:0 2px 14px #000}
+.btn{position:relative;overflow:hidden;font:800 .9rem Cinzel,serif;letter-spacing:.3em;padding:18px 42px;border-radius:50px;color:#150804;background:linear-gradient(135deg,#ffd27a,#ff7a1a);box-shadow:0 0 30px #ff7a1a88;animation:pu 2.4s infinite;border:0;display:inline-block}
+.btn::after{content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(90deg,transparent,#fff9,transparent);transform:skewX(-20deg);animation:sh 3s infinite}
+@keyframes sh{to{left:140%}}@keyframes pu{50%{box-shadow:0 0 60px #ff7a1acc,0 0 100px #a3141c66}}
+.hint{font:.7rem Cinzel,serif;letter-spacing:.4em;color:var(--mut)}.hint::after{content:'';display:block;width:1px;height:36px;margin:8px auto 0;background:linear-gradient(var(--gold),transparent);animation:sc 2s infinite}
+@keyframes sc{from{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}to{transform:scaleY(0);transform-origin:bottom}}
+/* story */
+#story{background:linear-gradient(#070406,#12060a)}
+.sg{display:grid;grid-template-columns:270px 1fr;gap:44px}
+.cl{display:flex;flex-direction:column;border-left:1px solid #f2b44a44;align-self:start}
+.cl button{all:unset;display:block;cursor:pointer;padding:13px 18px;color:var(--mut);font:600 .78rem Cinzel,serif;letter-spacing:.08em;position:relative;transition:.4s}
+.cl button b{color:var(--saf);margin-right:10px}.cl button.on{color:var(--gold);padding-left:30px}
+.cl button.on::before{content:'';position:absolute;left:-2px;top:0;bottom:0;width:3px;background:var(--gold);box-shadow:0 0 14px var(--saf)}
+.pn{display:grid;grid-template-columns:1fr 1.1fr;gap:38px;align-items:center}
+.fr{aspect-ratio:4/5;border:1px solid #f2b44a66;border-radius:6px;overflow:hidden;box-shadow:0 30px 80px #000,0 0 60px #a3141c55}
+#sx small{color:var(--saf);font:600 .8rem Cinzel,serif;letter-spacing:.3em}#sx h3{font-size:clamp(1.5rem,3vw,2.2rem);margin:8px 0 14px;color:var(--gold)}#sx p{font-size:1.3rem;margin:0}
+/* characters */
+#chars{background:radial-gradient(ellipse at 50% 0,#16296b55,transparent 60%),#0a0508}
+.cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:28px}
+.ci,.ps{position:relative;aspect-ratio:3/4;border-radius:10px;overflow:hidden;border:1px solid #f2b44a55;transition:transform .18s,box-shadow .4s;box-shadow:0 20px 50px #000;will-change:transform}
+.ci:hover,.ps:hover{box-shadow:0 30px 80px #000,0 0 50px #ff7a1a66}
+.ci::after,.ps::after{content:'';position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at var(--mx,50%) var(--my,0%),#ffffff30,transparent 50%)}
+.cb{position:absolute;inset:auto 0 0;padding:80px 20px 20px;background:linear-gradient(transparent,#050204f2 60%)}
+.cb h3{margin:0;color:var(--gold);letter-spacing:.1em;font-size:1.15rem}.cb p{margin:6px 0 0;font-size:1rem;line-height:1.4}
+/* gallery */
+#gal{padding:120px 0 0;background:#050204}#gal .wrap{padding:0 6vw}
+.car{position:relative;height:78vh;min-height:420px;overflow:hidden;background:#000}
+.car::before,.car::after{content:'';position:absolute;left:0;right:0;height:5vh;background:#000;z-index:3}.car::before{top:0}.car::after{bottom:0}
+.sl{position:absolute;inset:0;opacity:0;visibility:hidden;cursor:zoom-in}
+.sl::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#050204cc,transparent 60%)}
+.sc{position:absolute;left:6vw;bottom:16vh;z-index:2}.sc small{font:600 .75rem Cinzel,serif;letter-spacing:.3em;color:var(--saf)}.sc h3{margin:4px 0 0;font-size:clamp(1.6rem,4.5vw,3.4rem);color:#ffe6a8;text-shadow:0 0 30px #ff7a1a}
+.ct{position:absolute;right:6vw;bottom:8vh;z-index:4;display:flex;gap:10px}
+.ct button{all:unset;cursor:pointer;width:46px;height:46px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--gold);color:var(--gold);background:#0008;backdrop-filter:blur(6px);transition:.3s}.ct button:hover{background:var(--gold);color:#120804}
+.lb{position:fixed;inset:0;z-index:950;background:#000d;backdrop-filter:blur(10px);display:none;place-items:center;padding:4vw}.lb.on{display:grid}
+#lbx{width:min(92vw,920px);max-height:82vh;aspect-ratio:16/10;border:1px solid #f2b44a88;border-radius:6px;overflow:hidden;box-shadow:0 0 90px #a3141c88;background:#0a0508}
+.ph{height:100%;display:grid;place-content:center;gap:10px;text-align:center;padding:20px}.play{width:84px;height:84px;margin:auto;border-radius:50%;display:grid;place-items:center;font-size:1.8rem;color:#150804;background:var(--gold);box-shadow:0 0 50px var(--saf)}
+.lb .x{all:unset;position:absolute;top:calc(18px + env(safe-area-inset-top,0px));right:22px;font-size:2.2rem;color:var(--gold);cursor:pointer}
+/* movie */
+#movie{background:radial-gradient(ellipse at 80% 40%,#a3141c44,transparent 60%),#0a0508}
+.mv{display:grid;grid-template-columns:minmax(240px,380px) 1fr;gap:64px;align-items:center}
+.ps{aspect-ratio:2/3}.ps h3{position:absolute;left:0;right:0;bottom:9%;text-align:center;font-size:clamp(1.6rem,4vw,2.4rem);letter-spacing:.2em;color:#ffe6a8;text-shadow:0 0 24px #ff7a1a;margin:0;z-index:2}
+.ps small{position:absolute;left:0;right:0;bottom:4%;text-align:center;font:600 .7rem Cinzel,serif;letter-spacing:.4em;color:var(--gold);z-index:2}
+.ro{display:flex;gap:20px;padding:15px 0;border-bottom:1px solid #f2b44a33}.ro b{width:130px;flex:none;font:600 .78rem Cinzel,serif;letter-spacing:.15em;color:var(--saf);padding-top:6px}
+#tr{margin-top:34px}
+/* footer */
+footer{position:relative;text-align:center;padding:90px 6vw calc(50px + env(safe-area-inset-bottom,0px));background:linear-gradient(#0a0508,#1a060a);overflow:hidden}
+footer .big{font-size:clamp(2rem,9vw,6rem);letter-spacing:.2em;color:#f2b44a22}
+.so{display:flex;gap:14px;justify-content:center;margin:26px 0}.so a{width:46px;height:46px;border-radius:50%;display:grid;place-items:center;border:1px solid #f2b44a66;color:var(--gold);font:800 .7rem Cinzel,serif;transition:.3s}.so a:hover{background:var(--gold);color:#120804;transform:translateY(-5px);box-shadow:0 0 24px var(--saf)}
+.df{display:inline-block;width:12px;height:20px;margin:0 14px;border-radius:50% 50% 50% 50%/70% 70% 30% 30%;background:linear-gradient(#fff3c8,var(--saf));box-shadow:0 0 22px var(--saf);animation:fl 1.1s ease-in-out infinite alternate}.df:nth-child(2){animation-delay:.4s}.df:nth-child(3){animation-delay:.8s}
+@keyframes fl{from{transform:scale(1,.85) skewX(-4deg)}to{transform:scale(1.1,1.15) skewX(4deg)}}
+footer p{color:var(--mut);font-size:.9rem;max-width:640px;margin:10px auto 0}
+@media(max-width:860px){
+ .lk{position:fixed;inset:0;z-index:-1;flex-direction:column;justify-content:center;align-items:center;gap:34px;background:#050204f5;transform:translateY(-100%);transition:transform .6s}
+ .lk a{font-size:1.1rem}.open .lk{transform:none}#mb{display:block}
+ .sg,.pn,.mv{grid-template-columns:1fr}.mv{gap:40px}.cl{flex-direction:row;overflow-x:auto;border:0}.cl button.on{padding-left:18px}.cl button.on::before{inset:auto 0 0;height:3px;width:auto}
+ section{padding:90px 6vw}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<div id="ld"><div class="cz lg">RAMAYANA</div><div class="bar"><i></i></div></div>
+<i id="cd"></i><i id="cr"></i><i id="pg"></i>
+
+<nav id="nav">
+  <a class="logo cz" href="#hero">RAMAYANA</a>
+  <div class="lk"><a href="#story">Story</a><a href="#chars">Characters</a><a href="#gal">Gallery</a><a href="#movie">The Film</a></div>
+  <button id="snd" aria-pressed="false" aria-label="Toggle ambient sound">♪ Off</button>
+  <button id="mb" aria-label="Menu">Menu</button>
+</nav>
+
+<!-- HERO: WebGL canvas + title -->
+<header id="hero">
+  <canvas id="gl" aria-hidden="true"></canvas>
+  <div class="top"><h1 class="t" aria-label="Ramayana">RAMAYANA</h1><p class="tag">The Eternal Epic. The Greatest Story Ever Told.</p></div>
+  <div class="sub"><a class="btn" href="#story">EXPLORE THE EPIC</a><span class="hint">SCROLL</span></div>
+</header>
+
+<section id="story"><div class="wrap">
+  <h2 class="cz rv">The Journey of Dharma</h2>
+  <div class="sg rv"><div class="cl" id="cl"></div>
+    <div class="pn"><div class="fr" id="sa"></div><div id="sx"><small id="sn"></small><h3 id="st"></h3><p id="sp"></p></div></div></div>
+</div></section>
+
+<section id="chars"><div class="wrap"><h2 class="cz rv">Heroes &amp; Legends</h2><div class="cg" id="cg"></div></div></section>
+
+<section id="gal"><div class="wrap"><h2 class="cz rv">Cinematic Gallery</h2></div>
+  <div class="car"><div id="sls"></div><div class="ct"><button id="pv" aria-label="Previous">‹</button><button id="nx" aria-label="Next">›</button></div></div>
+</section>
+
+<section id="movie"><div class="wrap"><h2 class="cz rv">The Film</h2>
+  <div class="mv"><div class="ps rv" id="ps"><h3 class="cz">RAMAYANA</h3><small>COMING SOON</small></div>
+  <div class="rv"><div id="mi"></div><button class="btn" id="tr">WATCH TRAILER</button></div></div>
+</div></section>
+
+<footer>
+  <div class="big cz">RAMAYANA</div>
+  <div aria-hidden="true"><i class="df"></i><i class="df"></i><i class="df"></i></div>
+  <div class="so"><a href="#" aria-label="YouTube">YT</a><a href="#" aria-label="Instagram">IG</a><a href="#" aria-label="X">X</a><a href="#" aria-label="Facebook">FB</a></div>
+  <p>A fan-made concept site inspired by the epic and the upcoming film. All artwork is original, procedurally generated illustration; it is not official film imagery. Social links are placeholders.</p>
+</footer>
+
+<div class="lb" id="lb"><button class="x" aria-label="Close">×</button><div id="lbx"></div></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+<script>
+/* ===== 3D HERO SCENE (Three.js) ===== */
+(()=>{
+const cv=document.getElementById('gl'),mob=innerWidth<800;let R;
+try{R=new THREE.WebGLRenderer({canvas:cv,antialias:!mob,alpha:true})}catch(e){}
+if(!R){document.body.classList.add('nogl');return}              // fallback: CSS visuals
+R.setPixelRatio(Math.min(devicePixelRatio,mob?1.5:2));R.shadowMap.enabled=!mob;
+const S=new THREE.Scene(),C=new THREE.PerspectiveCamera(52,1,.1,200),add=THREE.AdditiveBlending;
+S.fog=new THREE.FogExp2(0x1b0709,.02);
+const glow=(()=>{const k=document.createElement('canvas');k.width=k.height=64;const x=k.getContext('2d'),g=x.createRadialGradient(32,32,0,32,32,32);
+ g.addColorStop(0,'rgba(255,255,255,1)');g.addColorStop(.35,'rgba(255,255,255,.4)');g.addColorStop(1,'rgba(255,255,255,0)');x.fillStyle=g;x.fillRect(0,0,64,64);return new THREE.CanvasTexture(k)})();
+const spr=(col,s,x,y,z,o=1,bl=add)=>{const m=new THREE.Sprite(new THREE.SpriteMaterial({map:glow,color:col,blending:bl,transparent:true,opacity:o,depthWrite:false,fog:false}));m.scale.set(s,s,1);m.position.set(x,y,z);S.add(m);return m};
+spr(0xffa030,46,0,8,-40,.9);spr(0xfff0b0,12,0,8,-39);              // rising sun
+const mt=(z,col,h,sd)=>{const sh=new THREE.Shape();sh.moveTo(-70,-4);for(let i=0;i<=46;i++)sh.lineTo(-70+i*3,h*(.5+.5*Math.sin(i*.9+sd)*Math.cos(i*.37+sd*2))+Math.sin(i*2.3+sd)*1.2);sh.lineTo(70,-4);
+ const m=new THREE.Mesh(new THREE.ShapeGeometry(sh),new THREE.MeshBasicMaterial({color:col}));m.position.z=z;S.add(m)};
+mt(-34,0x5a2030,13,1);mt(-24,0x2e1224,10,3);mt(-14,0x170a14,7,5);   // layered mountains
+const gr=new THREE.Mesh(new THREE.PlaneGeometry(140,140),new THREE.MeshStandardMaterial({color:0x1c0b0e,roughness:.95}));gr.rotation.x=-Math.PI/2;gr.receiveShadow=true;S.add(gr);
+const tg=new THREE.ConeGeometry(1,4,6),tm=new THREE.MeshStandardMaterial({color:0x07030a,roughness:1});
+for(let i=0;i<(mob?26:46);i++){const s=.8+Math.random()*1.6,t=new THREE.Mesh(tg,tm);t.scale.set(s,s*1.5,s);t.position.set((Math.random()<.5?-1:1)*(5+Math.random()*22),s*3,4-Math.random()*20);S.add(t)} // forest
+/* Rama-inspired silhouette with divine bow */
+const gold=new THREE.MeshStandardMaterial({color:0xf2b44a,metalness:.8,roughness:.35,emissive:0x7a3e00}),dk=new THREE.MeshStandardMaterial({color:0x08040a,roughness:.55,metalness:.2});
+const Ra=new THREE.Group();S.add(Ra);
+const P=(g,m,x,y,z,rz=0)=>{const o=new THREE.Mesh(g,m);o.position.set(x,y,z);o.rotation.z=rz;o.castShadow=true;Ra.add(o);return o};
+P(new THREE.CylinderGeometry(.5,.95,2.4,20),dk,0,1.2,0);P(new THREE.CylinderGeometry(.5,.55,1.3,20),dk,0,3,0);
+P(new THREE.SphereGeometry(.62,20,12),dk,0,3.55,0).scale.set(1.15,.4,.6);P(new THREE.CylinderGeometry(.14,.16,.4,10),dk,0,3.85,0);
+P(new THREE.SphereGeometry(.3,20,16),dk,0,4.25,0);P(new THREE.ConeGeometry(.34,.6,8),gold,0,4.85,0);
+P(new THREE.CylinderGeometry(.09,.07,1.3,10),dk,1.08,3.15,.35,-2.16);P(new THREE.CylinderGeometry(.09,.07,1.05,10),dk,-.68,3,.2,2.9);
+const bow=P(new THREE.TorusGeometry(2.6,.05,8,40,1.9),gold,-1,2.8,.5,-.95);
+const sg=new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(.52,4.93,.5),new THREE.Vector3(.52,.67,.5)]);Ra.add(new THREE.Line(sg,new THREE.LineBasicMaterial({color:0xffd27a})));
+const halo=new THREE.Mesh(new THREE.RingGeometry(.9,.96,64),new THREE.MeshBasicMaterial({color:0xffd27a,transparent:true,opacity:.8,blending:add}));halo.position.set(0,4.3,-.4);Ra.add(halo);
+Ra.add(Object.assign(spr(0xffb040,6,0,4.3,-.6,.55)));
+const bowG=spr(0xffa030,3.5,1.6,2.8,.6);
+/* lighting */
+S.add(new THREE.HemisphereLight(0x4a62d8,0x2a0a10,.7));
+const D=new THREE.DirectionalLight(0xffa850,2.4);D.position.set(5,12,-9);D.castShadow=true;D.shadow.mapSize.set(1024,1024);Object.assign(D.shadow.camera,{left:-10,right:10,top:10,bottom:-10,near:1,far:40});S.add(D);
+const B=new THREE.PointLight(0x3a5cff,2,30);B.position.set(-6,4,5);S.add(B);
+const fire=new THREE.PointLight(0xff8a2a,3,12);fire.position.set(1.8,2.8,1.4);S.add(fire);
+/* light rays, clouds, fog banks */
+const rays=[];for(let i=0;i<7;i++){const m=new THREE.Mesh(new THREE.PlaneGeometry(2+Math.random()*3,44),new THREE.MeshBasicMaterial({color:0xffb050,transparent:true,opacity:.05,blending:add,depthWrite:false,side:2,fog:false}));m.position.set(-9+i*3,10,-12);m.rotation.z=.35;S.add(m);rays.push(m)}
+const clouds=[];for(let i=0;i<9;i++){const c=spr(i<5?0x6a2236:0x8a4a5a,i<5?24:18,-40+i*10,i<5?10+Math.random()*6:1.2,i<5?-26:-8+Math.random()*10,i<5?.35:.14,THREE.NormalBlending);c.userData.v=.004+Math.random()*.008;clouds.push(c)}
+/* golden dust + embers */
+const mkP=(n,col,sz)=>{const g=new THREE.BufferGeometry(),p=new Float32Array(n*3);for(let i=0;i<n;i++){p[i*3]=(Math.random()-.5)*40;p[i*3+1]=Math.random()*14;p[i*3+2]=(Math.random()-.5)*30-2}
+ g.setAttribute('position',new THREE.BufferAttribute(p,3));const o=new THREE.Points(g,new THREE.PointsMaterial({map:glow,color:col,size:sz,transparent:true,blending:add,depthWrite:false}));S.add(o);return o};
+const dust=mkP(mob?250:600,0xffd27a,.18),emb=mkP(mob?60:160,0xff5a1a,.32);
+const step=(o,v,w,t)=>{const a=o.geometry.attributes.position.array;for(let i=0;i<a.length;i+=3){a[i+1]+=v*(1+(i%7)*.15);a[i]+=Math.sin(t*w+i)*.006;if(a[i+1]>14)a[i+1]=0}o.geometry.attributes.position.needsUpdate=true};
+/* camera state is driven by GSAP (intro dolly + scroll) and mouse parallax */
+const cam=window.RAMA={cam:{i:5,s:0}},m={x:0,y:0,sx:0,sy:0},ck=new THREE.Clock();let vis=true;
+addEventListener('pointermove',e=>{m.x=e.clientX/innerWidth-.5;m.y=e.clientY/innerHeight-.5});
+new IntersectionObserver(e=>vis=e[0].isIntersecting).observe(document.getElementById('hero'));
+const rs=()=>{const w=cv.clientWidth,h=cv.clientHeight;R.setSize(w,h,false);C.aspect=w/h;C.fov=w/h<1?72:52;C.updateProjectionMatrix()};addEventListener('resize',rs);rs();
+(function loop(){requestAnimationFrame(loop);if(!vis)return;const t=ck.getElapsedTime(),k=cam.cam;
+ m.sx+=(m.x-m.sx)*.05;m.sy+=(m.y-m.sy)*.05;
+ C.position.set(-m.sx*2.5,2.6+k.s*1.4-m.sy*1.2,11+k.i-k.s*5.5);C.lookAt(0,4+k.s*.6,0);
+ Ra.rotation.y=Math.sin(t*.4)*.08;Ra.position.y=Math.sin(t)*.03;
+ bowG.material.opacity=.7+.3*Math.sin(t*3);fire.intensity=2.5+Math.sin(t*9)*.6+Math.random()*.4;
+ rays.forEach((r,i)=>r.material.opacity=.035+.03*Math.sin(t*.6+i*1.7));
+ clouds.forEach(c=>{c.position.x+=c.userData.v*8;if(c.position.x>50)c.position.x=-50});
+ step(dust,.004,.3,t);step(emb,.03,1.2,t);R.render(S,C)})();
+})();
+</script>
+
+<script>
+/* ===== CONTENT: edit MOVIE once official details are public ===== */
+const MOVIE={title:'Ramayana',release:'Coming Soon',cast:'To be announced via official channels',production:'Credits to be confirmed by official sources',trailer:''};
+const $=(s,c=document)=>c.querySelector(s),$$=(s,c=document)=>[...c.querySelectorAll(s)];
+gsap.registerPlugin(ScrollTrigger);
+
+/* Procedural artwork: sunlit mountains + Devanagari glyph (no external images) */
+const art=(a,b,g,id)=>`<svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" role="img" aria-label="${g}"><defs><linearGradient id="g${id}" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${a}"/><stop offset=".65" stop-color="${b}"/><stop offset="1" stop-color="#090305"/></linearGradient><radialGradient id="s${id}"><stop offset="0" stop-color="#ffd27a"/><stop offset="1" stop-color="#ff7a1a" stop-opacity="0"/></radialGradient></defs><rect width="400" height="500" fill="url(#g${id})"/><circle cx="200" cy="255" r="150" fill="url(#s${id})"/><text x="200" y="285" text-anchor="middle" font-size="100" class="dv" fill="#ffe6a8" style="filter:drop-shadow(0 0 14px #ff9a2e)">${g}</text><path d="M0 330 L70 290 L130 325 L210 270 L290 320 L350 285 L400 315 V500H0Z" fill="#1a0a10" opacity=".85"/><path d="M0 400 L80 350 L160 395 L250 340 L330 390 L400 360 V500H0Z" fill="#0a0407"/></svg>`;
+const tilt=el=>{el.addEventListener('pointermove',e=>{if(e.pointerType!=='mouse')return;const b=el.getBoundingClientRect(),x=(e.clientX-b.left)/b.width,y=(e.clientY-b.top)/b.height;
+ el.style.transform=`perspective(800px) rotateY(${(x-.5)*18}deg) rotateX(${(.5-y)*18}deg) scale(1.04)`;el.style.setProperty('--mx',x*100+'%');el.style.setProperty('--my',y*100+'%')});
+ el.addEventListener('pointerleave',()=>el.style.transform='')};
+const rv=(sel,st=.1)=>{gsap.set(sel,{opacity:0,y:60});ScrollTrigger.batch(sel,{start:'top 88%',once:true,onEnter:b=>gsap.to(b,{opacity:1,y:0,stagger:st,duration:1,ease:'power3.out',overwrite:true})})};
+
+/* Story chapters: [title, glyph, sky, glow, text] */
+const CH=[
+['The Birth of Lord Rama','अयोध्या','#1b2a6b','#a3401c','After a sacred yajna, King Dasharatha of Ayodhya is blessed with four sons. Rama, born to Queen Kausalya, is destined to become the ideal of dharma.'],
+['Sita Swayamvar','स्वयंवर','#4a1a5a','#c0561c','In Mithila, King Janaka offers his daughter Sita to whoever can string Shiva’s mighty bow. Rama lifts it with ease, and it breaks in his hands.'],
+['The Exile of Rama','वनवास','#0e3a2a','#7a2a14','Bound by an old promise, Dasharatha must send Rama into the forest for fourteen years. Sita and Lakshmana choose to follow him.'],
+['The Abduction of Sita','हरण','#5a0e14','#c08a1c','Lured away by a golden deer, Rama and Lakshmana leave Sita alone. Ravana, the king of Lanka, seizes his chance and carries her across the sea.'],
+['Hanuman’s Journey to Lanka','लंका','#10205a','#d0501c','Hanuman leaps across the ocean, finds Sita in the Ashoka grove and brings her Rama’s ring. Before he leaves, Lanka burns with his fire.'],
+['The Battle of Lanka','युद्ध','#3a0a10','#e0601a','Vanaras and bears bridge the sea and march on Lanka. Across days of war, Rama’s allies stand against Ravana’s great army.'],
+['The Victory of Dharma','धर्म','#6a3a0a','#e0a030','Rama defeats Ravana and reunites with Sita. Ayodhya lights countless lamps to welcome them home, and a golden age of righteous rule begins.']];
+$('#cl').innerHTML=CH.map((c,i)=>`<button data-i="${i}"><b>0${i+1}</b>${c[0]}</button>`).join('');
+let cur=-1,auto;
+const go=i=>{if(i===cur)return;cur=i;const c=CH[i];$$('#cl button').forEach((b,k)=>b.classList.toggle('on',k===i));
+ $('#sa').innerHTML=art(c[2],c[3],c[1],'s'+i);$('#sn').textContent='Chapter 0'+(i+1);$('#st').textContent=c[0];$('#sp').textContent=c[4];
+ gsap.fromTo('#sa svg',{scale:1.25,opacity:0},{scale:1,opacity:1,duration:1.2,ease:'power3.out'});gsap.fromTo('#sx > *',{y:30,opacity:0},{y:0,opacity:1,stagger:.12,duration:.8,ease:'power2.out'})};
+$$('#cl button').forEach(b=>b.onclick=()=>{clearInterval(auto);go(+b.dataset.i)});
+go(0);auto=setInterval(()=>go((cur+1)%CH.length),8000);
+
+/* Character cards with 3D tilt */
+const CS=[['Lord Rama','राम','The prince of Ayodhya who lives by dharma, even when it costs him his crown.','#16296b','#b5651d'],
+['Goddess Sita','सीता','Daughter of Mithila, whose courage and grace endure exile and captivity.','#3a1a5a','#c05a2a'],
+['Lakshmana','लक्ष्मण','Rama’s devoted brother, who gives up every comfort to guard him in the forest.','#0e3a3a','#9a3a1c'],
+['Hanuman','हनुमान','The mighty devotee whose strength, leap and loyalty carry hope to Lanka.','#6a2a0a','#e08a1c'],
+['Ravana','रावण','The ten-headed king of Lanka: a scholar of vast power, undone by his pride.','#3a0508','#c0201c'],
+['King Dasharatha','दशरथ','The ruler of Ayodhya, torn between a sacred promise and a father’s heart.','#2a2a6a','#a06a1c']];
+$('#cg').innerHTML=CS.map((c,i)=>`<article class="card"><div class="ci">${art(c[3],c[4],c[1],'c'+i)}<div class="cb"><h3>${c[0]}</h3><p>${c[2]}</p></div></div></article>`).join('');
+$$('.ci').forEach(tilt);
+ScrollTrigger.batch('.card',{start:'top 90%',once:true,onEnter:b=>gsap.fromTo(b,{y:80,opacity:0,rotationX:-20},{y:0,opacity:1,rotationX:0,stagger:.12,duration:1,ease:'power3.out'})});
+gsap.set('.card',{opacity:0});
+
+/* Gallery carousel + lightbox */
+const GS=[['Dandaka Forest','वन','#0e3a3a','#6b2a14'],['The Golden Deer','मृग','#5a3a0a','#d09020'],['The Bridge to Lanka','सेतु','#10205a','#a33a1c'],['Lanka Ablaze','लंका','#3a0508','#e0501a'],['Return to Ayodhya','दीप','#2a1a6a','#e0901c']];
+$('#sls').innerHTML=GS.map((g,i)=>`<div class="sl" data-i="${i}">${art(g[2],g[3],g[1],'g'+i)}<div class="sc"><small>Scene 0${i+1}</small><h3 class="cz">${g[0]}</h3></div></div>`).join('');
+let gi=-1,gt;
+const show=i=>{const old=$$('.sl')[gi];gi=(i+GS.length)%GS.length;const n=$$('.sl')[gi];if(old===n)return;if(old)gsap.to(old,{autoAlpha:0,duration:1.2});
+ gsap.fromTo(n,{autoAlpha:0},{autoAlpha:1,duration:1.2});gsap.fromTo($('svg',n),{scale:1.3},{scale:1,duration:3,ease:'power2.out'});gsap.fromTo($('.sc',n),{x:-60,opacity:0},{x:0,opacity:1,duration:1.2,delay:.4});
+ clearTimeout(gt);gt=setTimeout(()=>show(gi+1),6000)};
+$('#pv').onclick=()=>show(gi-1);$('#nx').onclick=()=>show(gi+1);show(0);
+const lb=$('#lb'),open=h=>{$('#lbx').innerHTML=h;lb.classList.add('on');gsap.fromTo('#lbx',{scale:.85,opacity:0},{scale:1,opacity:1,duration:.6,ease:'power3.out'})},close=()=>lb.classList.remove('on');
+$$('.sl').forEach(s=>s.onclick=()=>{const g=GS[+s.dataset.i];open(art(g[2],g[3],g[1],'L'))});
+lb.onclick=e=>{if(e.target===lb||e.target.closest('.x'))close()};addEventListener('keydown',e=>e.key==='Escape'&&close());
+
+/* Movie info */
+$('#ps').insertAdjacentHTML('afterbegin',art('#16296b','#a3141c','रामायण','p'));tilt($('#ps'));
+$('#mi').innerHTML=[['Title',MOVIE.title],['Release',MOVIE.release],['Cast',MOVIE.cast],['Production',MOVIE.production]].map(r=>`<div class="ro"><b>${r[0].toUpperCase()}</b><span>${r[1]}</span></div>`).join('');
+$('#tr').onclick=()=>MOVIE.trailer?window.open(MOVIE.trailer,'_blank','noopener'):open('<div class="ph"><div class="play">▶</div><h3 class="cz">Trailer coming soon</h3><p>No official trailer is available yet. Set MOVIE.trailer to its link once released.</p></div>');
+
+/* Nav, progress, cursor */
+$('#mb').onclick=()=>$('#nav').classList.toggle('open');$$('.lk a').forEach(a=>a.onclick=()=>$('#nav').classList.remove('open'));
+gsap.to('#pg',{scaleX:1,ease:'none',scrollTrigger:{scrub:.3,start:0,end:'max'}});
+if(matchMedia('(hover:hover)').matches){const q=(e,d)=>[gsap.quickTo(e,'x',{duration:d}),gsap.quickTo(e,'y',{duration:d})],[dx,dy]=q('#cd',.1),[rx,ry]=q('#cr',.5);
+ addEventListener('pointermove',e=>{dx(e.clientX);dy(e.clientY);rx(e.clientX);ry(e.clientY)});
+ document.addEventListener('pointerover',e=>$('#cr').classList.toggle('h',!!e.target.closest('a,button,.ci,.ps,.sl')))}
+
+/* Ambient sound: generated with Web Audio, off by default */
+let ac,mg,on=false;
+$('#snd').onclick=()=>{if(!ac){ac=new(window.AudioContext||window.webkitAudioContext)();mg=ac.createGain();mg.gain.value=0;const f=ac.createBiquadFilter();f.type='lowpass';f.frequency.value=700;
+ [55,82.4,110.3,165].forEach((fr,i)=>{const o=ac.createOscillator(),g=ac.createGain();o.type=i%2?'sine':'triangle';o.frequency.value=fr;g.gain.value=.5/(i+1);o.connect(g).connect(f);o.start()});
+ const l=ac.createOscillator(),lg=ac.createGain();l.frequency.value=.1;lg.gain.value=300;l.connect(lg).connect(f.frequency);l.start();f.connect(mg).connect(ac.destination)}
+ on=!on;ac.resume();mg.gain.setTargetAtTime(on?.12:0,ac.currentTime,.6);$('#snd').classList.toggle('on',on);$('#snd').textContent=on?'♪ On':'♪ Off';$('#snd').setAttribute('aria-pressed',on)};
+
+/* Hero: cinematic intro + scroll-linked camera */
+$$('.t').forEach(h=>h.innerHTML=[...'RAMAYANA'].map(c=>`<span>${c}</span>`).join(''));
+const RC=window.RAMA&&RAMA.cam;
+if(RC)gsap.to(RC,{s:1,ease:'none',scrollTrigger:{trigger:'#hero',start:'top top',end:'bottom top',scrub:1}});
+gsap.to('#hero .top',{yPercent:-40,opacity:0,ease:'none',scrollTrigger:{trigger:'#hero',start:'top top',end:'80% top',scrub:true}});
+rv('.rv',.15);
+const intro=()=>{const tl=gsap.timeline();if(RC)tl.to(RC,{i:0,duration:4.5,ease:'power3.out'},0);
+ tl.from('.t span',{yPercent:120,opacity:0,rotationX:-80,scale:1.3,stagger:.09,duration:1.6,ease:'expo.out'},.2).from('.tag,.sub > *',{y:30,opacity:0,stagger:.25,duration:1.2},'-=.8')};
+addEventListener('load',()=>setTimeout(()=>gsap.to('#ld',{opacity:0,duration:1,onComplete:()=>{$('#ld').remove();intro()}}),1600));
+</script>
+</body>
+</html>
